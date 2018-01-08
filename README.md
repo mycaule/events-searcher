@@ -12,8 +12,9 @@
 
 ## Usage
 
-Write a scraper in /services then expose it with a new endpoint in app.js
+Write a scraper in `/services` then expose it with a new endpoint in `app.js`. You can clone this repo and deploy with Heroku.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Websites
 

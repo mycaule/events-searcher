@@ -1,0 +1,7 @@
+{
+  "name": "Events searcher",
+  "description": "Events scraper and calendar",
+  "repository": "https://github.com/mycaule/events-searcher",
+  "logo": "https://events-searcher.herokuapp.com/logo.png",
+  "keywords": ["node", "express", "events", "search", "calendar"]
+}
