@@ -10,5 +10,23 @@
   <br>
 </p>
 
-## RTL Le Grand Studio
-ICal file : https://events-searcher.herokuapp.com/ical/rtl/grand-studio
+## Usage
+
+Write a scraper in /services then expose it with a new endpoint in app.js
+
+
+## Websites
+
+### RTL
+
+Supported formats
+* ICal file : [ical/rtl/grand-studio](https://events-searcher.herokuapp.com/ical/rtl/grand-studio)
+* JSON-LD Event, TODO: http://schema.org/Event
+
+## Roadmap
+
+See also [mycaule/check-events-cli](https://github.com/mycaule/check-events-cli).
+
+## References
+
+* [Google - Import events to Google Calendar](https://support.google.com/calendar/answer/37118?hl=en&ref_topic=3417927&vid=0-421393567778-1515431429013)
