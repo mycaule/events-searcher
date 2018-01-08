@@ -22,8 +22,8 @@ app.get('/ical/rtl/grand-studio', async (req, res) => {
   builder.ignoreTZIDMismatch = true
 
   builder.calname = 'Le Grand Studio RTL'
-  builder.timezone = 'america/new_york'
-  builder.tzid = 'america/new_york'
+  builder.timezone = 'europe/paris'
+  builder.tzid = 'europe/paris'
   builder.method = 'REQUEST'
 
   events.forEach(_ => {
