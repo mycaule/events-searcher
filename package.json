@@ -1,0 +1,54 @@
+{
+  "name": "events-searcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "xo && ava --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mycaule/events-searcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mycaule/events-searcher/issues"
+  },
+  "homepage": "https://github.com/mycaule/events-searcher#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "cheerio": "^1.0.0-rc.2",
+    "date-fns": "^1.29.0",
+    "express": "^4.16.2",
+    "helmet": "^3.9.0",
+    "ical-toolkit": "^1.0.9",
+    "superstruct": "^0.5.0",
+    "voca": "^1.4.0"
+  },
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "space": true,
+    "semicolon": false,
+    "ignore": [
+      "**/dist/**"
+    ],
+    "envs": [
+      "node",
+      "browser"
+    ]
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit",
+    "snapshotDir": "snapshots"
+  }
+}
