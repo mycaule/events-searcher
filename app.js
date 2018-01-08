@@ -1,6 +1,7 @@
 const express = require('express')
 const helmet = require('helmet')
 const icalToolkit = require('ical-toolkit')
+const dateFns = require('date-fns')
 
 const rtl = require('./services/rtl')
 
@@ -26,9 +27,11 @@ app.get('/ical/rtl/grand-studio', async (req, res) => {
   builder.method = 'REQUEST'
 
   events.forEach(_ => {
+    console.log(_)
+    const startDate = dateFns.parse(_.date)
     builder.events.push({
-      start: new Date(),
-      end: new Date(),
+      start: startDate,
+      end: dateFns.addHours(startDate, 3),
       transp: 'OPAQUE',
       summary: _.name,
       alarms: [15, 10, 5],

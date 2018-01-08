@@ -26,8 +26,7 @@ const grandStudio = () =>
 
       return {
         name: match[1],
-        date: `${match[2]}/${match[3]}/${match[4]}`,
-        time: `${match[5]}:${match[6]}`
+        date: `20${match[4]}-${match[3]}-${match[2]}T${match[5]}:${match[6]}:00`
       }
     })
   })
