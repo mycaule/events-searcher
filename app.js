@@ -30,7 +30,7 @@ app.get('/ical/rtl/grand-studio', async (req, res) => {
       start: new Date(),
       end: new Date(),
       transp: 'OPAQUE',
-      summary: 'Test Event',
+      summary: _.name,
       alarms: [15, 10, 5],
       uid: null,
       sequence: null,
