@@ -11,9 +11,7 @@ const port = process.env.PORT || 5050
 
 app.use(helmet())
 
-app.get('/ical/rtl/grand-studio', async (req, res) => {
-  const events = await rtl.grandStudio()
-
+const myFn = (calname, events, location, url) => {
   const builder = icalToolkit.createIcsFileBuilder()
 
   builder.spacers = true
@@ -21,33 +19,49 @@ app.get('/ical/rtl/grand-studio', async (req, res) => {
   builder.throwError = false
   builder.ignoreTZIDMismatch = true
 
-  builder.calname = 'Le Grand Studio RTL'
+  builder.calname = calname
   builder.timezone = 'europe/paris'
   builder.tzid = 'europe/paris'
   builder.method = 'REQUEST'
 
   events.forEach(_ => {
-    console.log(_)
     const startDate = dateFns.parse(_.date)
     builder.events.push({
       start: startDate,
-      end: dateFns.addHours(startDate, 3),
+      end: dateFns.addHours(startDate, 2),
       transp: 'OPAQUE',
       summary: _.name,
       uid: null,
       sequence: null,
       stamp: new Date(),
       floating: false,
-      location: '22 rue Bayard, 75008 Paris',
-      description: _.name,
-      attendees: [],
+      location,
+      description: `${_.name} - ${_.status}`,
       method: 'PUBLISH',
       status: 'CONFIRMED',
-      url: 'http://www.rtl.fr/emission/le-grand-studio-rtl'
+      url
     })
   })
 
-  const icsFileContent = builder.toString()
+  return builder.toString()
+}
+
+app.get('/ical/rtl/grand-studio', async (req, res) => {
+  const events = await rtl.grandStudio()
+
+  const icsFileContent = myFn('Le Grand Studio RTL', events, '22 rue Bayard, 75008 Paris', 'https://www.rtl.fr/emission/le-grand-studio-rtl')
+
+  if (icsFileContent instanceof Error) {
+    res.status(200).end('Returned Error, you can also configure to throw errors!')
+  }
+
+  res.end(icsFileContent)
+})
+
+app.get('/ical/rtl/grand-studio-humour', async (req, res) => {
+  const events = await rtl.grandStudioHumour()
+
+  const icsFileContent = myFn('Le Grand Studio RTL Humour', events, '22 rue Bayard, 75008 Paris', 'https://www.rtl.fr/emission/le-grand-studio-rtl-humour')
 
   if (icsFileContent instanceof Error) {
     res.status(200).end('Returned Error, you can also configure to throw errors!')
