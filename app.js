@@ -11,7 +11,7 @@ const port = process.env.PORT || 5050
 
 app.use(helmet())
 
-const myFn = (calname, events, location, url) => {
+const icsMaker = (calname, events, location, url) => {
   const builder = icalToolkit.createIcsFileBuilder()
 
   builder.spacers = true
@@ -49,10 +49,10 @@ const myFn = (calname, events, location, url) => {
 app.get('/ical/rtl/grand-studio', async (req, res) => {
   const events = await rtl.grandStudio()
 
-  const icsFileContent = myFn('Le Grand Studio RTL', events, '22 rue Bayard, 75008 Paris', 'https://www.rtl.fr/emission/le-grand-studio-rtl')
+  const icsFileContent = icsMaker('Le Grand Studio RTL', events, '22 rue Bayard, 75008 Paris', 'https://www.rtl.fr/emission/le-grand-studio-rtl')
 
   if (icsFileContent instanceof Error) {
-    res.status(200).end('Returned Error, you can also configure to throw errors!')
+    res.status(500).end('ICS error')
   }
 
   res.end(icsFileContent)
@@ -61,10 +61,10 @@ app.get('/ical/rtl/grand-studio', async (req, res) => {
 app.get('/ical/rtl/grand-studio-humour', async (req, res) => {
   const events = await rtl.grandStudioHumour()
 
-  const icsFileContent = myFn('Le Grand Studio RTL Humour', events, '22 rue Bayard, 75008 Paris', 'https://www.rtl.fr/emission/le-grand-studio-rtl-humour')
+  const icsFileContent = icsMaker('Le Grand Studio RTL Humour', events, '22 rue Bayard, 75008 Paris', 'https://www.rtl.fr/emission/le-grand-studio-rtl-humour')
 
   if (icsFileContent instanceof Error) {
-    res.status(200).end('Returned Error, you can also configure to throw errors!')
+    res.status(500).end('ICS error')
   }
 
   res.end(icsFileContent)

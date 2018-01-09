@@ -28,6 +28,8 @@ Supported formats
 
 See also [mycaule/check-events-cli](https://github.com/mycaule/check-events-cli).
 
+- [ ] Support natural language date parsing: https://github.com/wanasit/chrono
+
 ## References
 
 * [Google - Import events to Google Calendar](https://support.google.com/calendar/answer/37118?hl=en&ref_topic=3417927&vid=0-421393567778-1515431429013)
