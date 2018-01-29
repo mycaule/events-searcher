@@ -25,14 +25,14 @@ const dates = (showId, pattern) =>
       const match = pattern.exec(_)
 
       return {
-        name: v.titleCase(match[1]),
+        name: v.chain(match[1]).replace(/Le Grand Studio RTL d./, '').replace('.', '').trim().titleCase().value(),
         date: `20${match[4]}-${match[3]}-${match[2]}T${match[5]}:${match[6]}:00+01:00`,
         status: match[7].replace('-', '').trim()
       }
     })
   })
 
-const grandStudio = () => dates(19423, /([A-Z]+[A-Z|\s]*) le (\d{2})\/(\d{2})\/(\d{2}) à (\d{2})h(\d{2}) -(.*)/u)
+const grandStudio = () => dates(19423, /(.*) le (\d{2})\/(\d{2})\/(\d{2}) à (\d{2})h(\d{2}) -(.*)/u)
 
 const grandStudioHumour = () => dates(7772743411, /avec ([A-Za-z]+[A-Za-z|\s]*) le (\d{2})\/(\d{2})\/(\d{2}) à (\d{2})h(\d{2}) -(.*)/u)
 
