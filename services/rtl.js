@@ -34,6 +34,6 @@ const dates = (showId, pattern) =>
 
 const grandStudio = () => dates(19423, /(.*) le (\d{2})\/(\d{2})\/(\d{2}) à (\d{2})h(\d{2}) -(.*)/u)
 
-const grandStudioHumour = () => dates(7772743411, /avec ([A-Za-z]+[A-Za-z|\s]*) le (\d{2})\/(\d{2})\/(\d{2}) à (\d{2})h(\d{2}) -(.*)/u)
+const grandStudioHumour = () => dates(7772743411, /avec (.*) le (\d{2})\/(\d{2})\/(\d{2}) à (\d{2})h(\d{2}) -(.*)/u)
 
 module.exports = {grandStudio, grandStudioHumour}
