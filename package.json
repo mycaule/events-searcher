@@ -18,20 +18,20 @@
   },
   "homepage": "https://github.com/mycaule/events-searcher#readme",
   "dependencies": {
-    "axios": "^0.17.1",
-    "cheerio": "^1.0.0-rc.2",
+    "axios": "^0.18.0",
+    "cheerio": "^0.22.0",
     "date-fns": "^1.29.0",
     "express": "^4.16.2",
-    "helmet": "^3.9.0",
+    "helmet": "^3.11.0",
     "ical-toolkit": "^1.0.9",
-    "superstruct": "^0.5.0",
+    "superstruct": "^0.5.1",
     "voca": "^1.4.0"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
-    "xo": "^0.18.2"
+    "xo": "^0.20.3"
   },
   "xo": {
     "space": true,
